@@ -1,0 +1,123 @@
+name: foodreto
+description: "FoodReto - Come. Cuenta. Compite. Rompe récords."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.0
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^3.4.3
+  go_router: ^18.0.2
+  firebase_core: ^4.15.0
+  firebase_auth: ^6.7.0
+  firebase_analytics: ^12.6.0
+  firebase_crashlytics: ^5.4.0
+  shared_preferences: ^2.5.5
+  cloud_firestore: ^6.10.0
+  google_sign_in: ^7.2.0
+  flutter_svg: ^2.3.0
+  share_plus: ^13.3.0
+  drift: ^2.35.0
+  drift_flutter: ^0.3.1
+  sqlite3: ^3.5.0
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  connectivity_plus: ^7.3.1
+  flutter_map: ^8.3.2
+  latlong2: ^0.10.1
+  geolocator: ^14.1.1
+  flutter_local_notifications: ^22.3.1
+  url_launcher: ^6.3.2
+  firebase_storage: ^13.6.0
+  image_picker: ^1.2.3
+  firebase_app_check: ^0.4.8
+  file_picker: ^13.1.0
+  cloud_functions: ^6.5.0
+  google_maps_flutter: ^2.18.1
+  flutter_native_splash: ^2.4.6
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^6.0.0
+  mocktail: ^1.0.5
+  fake_cloud_firestore: ^4.3.0
+  drift_dev: ^2.35.0
+  build_runner: ^2.15.1
+  flutter_launcher_icons: ^0.14.4
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  web:
+    generate: true
+  image_path: assets/branding/app_icon.png
+  adaptive_icon_background: "#C25B52"
+  adaptive_icon_foreground: assets/branding/app_icon_foreground.png
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  color: "#FFFBF7"
+  image: assets/branding/splash_logo.png
+  color_dark: "#1E1A1C"
+  image_dark: assets/branding/splash_logo.png
+  android_12:
+    color: "#FFFBF7"
+    icon_background_color: "#C25B52"
+    image: assets/branding/splash_android12.png
+    color_dark: "#1E1A1C"
+    icon_background_color_dark: "#C25B52"
+    image_dark: assets/branding/splash_android12.png
+  android: true
+  ios: true
+  web: true
+  fullscreen: true
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - assets/branding/

@@ -1,0 +1,10 @@
+{
+  "_comment": "Placeholder. Copia a android/app/google-services.json desde Firebase Console (no subir el archivo real).",
+  "project_info": {
+    "project_number": "YOUR_PROJECT_NUMBER",
+    "project_id": "foodreto",
+    "storage_bucket": "foodreto.firebasestorage.app"
+  },
+  "client": [],
+  "configuration_version": "1"
+}

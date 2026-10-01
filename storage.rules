@@ -1,0 +1,64 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isSuperAdmin() {
+      return isSignedIn() && (
+        request.auth.token.superAdmin == true
+        || request.auth.token.email == 'administracion@tinguar.com'
+      );
+    }
+
+    function isEstablishmentOwner(establishmentId) {
+      return isSignedIn()
+        && firestore.exists(
+          /databases/(default)/documents/restaurants/$(establishmentId))
+        && firestore.get(
+          /databases/(default)/documents/restaurants/$(establishmentId))
+            .data.ownerUserId == request.auth.uid;
+    }
+
+    function isApprovedEstablishment(establishmentId) {
+      return firestore.exists(
+          /databases/(default)/documents/restaurants/$(establishmentId))
+        && firestore.get(
+          /databases/(default)/documents/restaurants/$(establishmentId))
+            .data.status == 'approved';
+    }
+
+    function isImage() {
+      return request.resource.contentType.matches('image/.*')
+        && request.resource.size < 5 * 1024 * 1024;
+    }
+
+    match /establishments/{establishmentId}/cover/{allPaths=**} {
+      allow read: if true;
+      allow write: if (isSuperAdmin() || isEstablishmentOwner(establishmentId))
+        && isApprovedEstablishment(establishmentId)
+        && isImage();
+    }
+
+    match /establishments/{establishmentId}/logo/{allPaths=**} {
+      allow read: if true;
+      allow write: if (isSuperAdmin() || isEstablishmentOwner(establishmentId))
+        && isApprovedEstablishment(establishmentId)
+        && isImage();
+    }
+
+    match /establishments/{establishmentId}/gallery/{allPaths=**} {
+      allow read: if true;
+      allow write: if (isSuperAdmin() || isEstablishmentOwner(establishmentId))
+        && isApprovedEstablishment(establishmentId)
+        && isImage();
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

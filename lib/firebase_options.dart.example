@@ -1,0 +1,8 @@
+// Placeholder. No subir credenciales reales a GitHub.
+// Genera este archivo en local con:
+//   flutterfire configure --project=foodreto
+//
+// El archivo real `lib/firebase_options.dart` está en .gitignore.
+throw UnsupportedError(
+  'Falta lib/firebase_options.dart. Ejecuta: flutterfire configure --project=foodreto',
+);
